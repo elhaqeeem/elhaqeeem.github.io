@@ -1,61 +1,46 @@
-// src/components/Dashboard.js
+import React, { useState, useEffect } from 'react';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import 'primereact/resources/themes/saga-blue/theme.css'; // Theme
+import 'primereact/resources/primereact.min.css'; // Core CSS
+import 'primeicons/primeicons.css'; // Icons
 
-import React, { useEffect, useState } from 'react';
-import { getDashboardData } from '../services/apiService';
-
-const Dashboard = () => {
-  const [dashboardData, setDashboardData] = useState([]);
+const DataTableComponent = () => {
+  const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    fetchDashboardData();
-  }, []);
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/customers');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setCustomers(data); // Assuming data is an array of customer objects
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
-  const fetchDashboardData = async () => {
-    try {
-      const response = await getDashboardData();
-      setDashboardData(response.data);
-    } catch (error) {
-      console.error('Error fetching dashboard data:', error);
-    }
-  };
+    fetchData();
+  }, []);
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      <div>
-        {dashboardData.map((item) => (
-          <div key={item.id}>
-            { <table>
-        <thead>
-          <tr>
-            <th>customerId :</th>
-            <th>firstName</th>
-            <th>lastName</th>
-            <th>emailAddress</th>
-            <th>phoneNumber</th>
-            <th>address</th>
-            {/* Add more headers based on your data structure */}
-          </tr>
-        </thead>
-        <tbody>
-          {dashboardData.map((item) => (
-            <tr key={item.id}>
-              <td>{item.customer_id}</td>
-              <td>{item.first_name}</td>
-              <td>{item.email}</td>
-              <td>{item.email}</td>
-              <td>{item.email}</td>
-              <td>{item.email}</td>
-              {/* Render more columns based on your data */}
-            </tr>
-          ))}
-        </tbody>
-      </table>}
-          </div>
-        ))}
-      </div>
+      <h3>Customer List</h3>
+      <DataTable value={customers}
+      showGridlines
+      >
+        <Column field="customer_id" header="ID" sortable style={{ width: '25%' }}/>
+        <Column field="firstName" header="Name" />
+        <Column field="lastName" header="Email" />
+        <Column field="emailAddress" header="Email" />
+        <Column field="phoneNumber" header="Email" />
+        <Column field="address" header="Email" />
+        {/* Add more columns as per your data structure */}
+      </DataTable>
     </div>
   );
 };
 
-export default Dashboard;
+export default DataTableComponent;
