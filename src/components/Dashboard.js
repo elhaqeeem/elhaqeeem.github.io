@@ -25,19 +25,21 @@ const DataTableComponent = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [first, setFirst] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // Move error state inside the component
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
+      setError(null); // Reset error on each fetch attempt
       try {
-        const response = await fetch('https://scared-devina-ucup-0a29482b.koyeb.app/penjualan');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log('Fetched Data:', data);
         setCustomers(data);
       } catch (error) {
+        setError('Failed to fetch customer data.'); // Set error message
         console.error('Error fetching data:', error);
       } finally {
         setLoading(false);
@@ -126,6 +128,8 @@ const DataTableComponent = () => {
   return (
     <div>
       <h3>Customer List</h3>
+
+      {error && <p className="error">{error}</p>} {/* Display error message */}
 
       <Button label="Add New Customer" icon="pi pi-plus" onClick={openNewCustomerDialog} />
 
