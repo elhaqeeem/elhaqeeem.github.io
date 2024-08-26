@@ -7,9 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/elhaqee
 add file .env
 
     ```
-    {
-        "REACT_APP_API_URL="
-    }
+    
+        REACT_APP_API_URL=
+    
         
     ```
 
