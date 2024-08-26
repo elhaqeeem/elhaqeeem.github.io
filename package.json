@@ -2,7 +2,7 @@
   "name": "my-react-dashboard",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
+  "proxy": "https://scared-devina-ucup-0a29482b.koyeb.app",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -11,10 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
-<<<<<<< HEAD
     "cors": "^2.8.5",
-=======
->>>>>>> 735a63b5e5a0eacc8517e2e2f9b00a9ce15dd3a9
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.7.0",
@@ -22,10 +19,7 @@
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "react-table": "^7.8.0",
-<<<<<<< HEAD
     "sweetalert2": "^11.12.4",
-=======
->>>>>>> 735a63b5e5a0eacc8517e2e2f9b00a9ce15dd3a9
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -54,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.24.7",
     "@babel/preset-react": "^7.24.7",
     "babel-loader": "^9.1.3",
