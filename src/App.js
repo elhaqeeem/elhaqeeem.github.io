@@ -1,13 +1,20 @@
 // src/App.js
-
 import React from 'react';
-import Dashboard from './components/Dashboard';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import DataTableComponent from './components/DataTableComponent';
+import KomisiPage from './components/KomisiPage';
+import NavBar from './components/NavBar';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Dashboard />
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<DataTableComponent />} />
+        <Route path="/komisi" element={<KomisiPage />} />
+      </Routes>
+    </Router>
   );
 }
 

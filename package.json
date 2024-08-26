@@ -1,7 +1,6 @@
 {
   "name": "my-react-dashboard",
   "version": "0.1.0",
-  "homepage": "https://elhaqeeem.github.io/elhaqeeem.github.io",
   "private": true,
   "proxy": "https://scared-devina-ucup-0a29482b.koyeb.app",
   "dependencies": {
@@ -15,9 +14,10 @@
     "cors": "^2.8.5",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
-    "primereact": "^10.7.0",
+    "primereact": "^10.8.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.1",
     "react-scripts": "5.0.1",
     "react-table": "^7.8.0",
     "sweetalert2": "^11.12.4",
@@ -25,7 +25,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-     "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
