@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Mendaftarkan Redirect URI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Panduan Mendaftarkan Redirect URI di Google Cloud Console</h1>
+        <p>Berikut adalah langkah-langkah untuk mendaftarkan Redirect URI untuk aplikasi Anda di Google Cloud Console:</p>
+
+        <h2>1. Masuk ke Google Cloud Console</h2>
+        <ul>
+            <li>Buka <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a>.</li>
+            <li>Masuk dengan akun Google yang memiliki akses ke proyek Anda.</li>
+        </ul>
+
+        <h2>2. Arahkan ke Bagian API & Layanan</h2>
+        <ul>
+            <li>Di panel navigasi sebelah kiri, pilih <strong>API & Layanan</strong>.</li>
+            <li>Klik <strong>Kredensial</strong>.</li>
+        </ul>
+
+        <h2>3. Temukan Kredensial OAuth</h2>
+        <ul>
+            <li>Temukan kredensial OAuth 2.0 yang telah Anda buat untuk aplikasi Anda. Biasanya, ini berupa <strong>Client ID</strong> dan <strong>Client Secret</strong>.</li>
+        </ul>
+
+        <h2>4. Edit Kredensial</h2>
+        <ul>
+            <li>Klik pada nama kredensial OAuth yang ingin Anda edit.</li>
+            <li>Di halaman detail kredensial, cari bagian <strong>URI Pengalihan (Redirect URIs)</strong>.</li>
+        </ul>
+
+        <h2>5. Tambahkan Redirect URI yang Valid</h2>
+        <ul>
+            <li>Klik tombol <strong>Tambahkan URI Pengalihan</strong> (Add Redirect URI).</li>
+            <li>Masukkan URL <code>https://elhaqeeem.github.io/callback</code> (atau URL lain yang sesuai jika Anda memiliki path spesifik).</li>
+            <li>Pastikan untuk menambahkan URL yang dapat diakses publik dan bukan localhost.</li>
+        </ul>
+
+        <h2>6. Simpan Perubahan</h2>
+        <ul>
+            <li>Setelah menambahkan URI pengalihan, jangan lupa untuk menyimpan perubahan.</li>
+        </ul>
+
+        <hr>
+        <footer>
+            <p>Dengan mengikuti langkah-langkah di atas, Anda dapat mendaftarkan Redirect URI yang valid untuk aplikasi Anda di Google Cloud Console.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
