@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Callback</title>
+    <script>
+        // Menangkap parameter dari URL
+        function getQueryParams() {
+            let params = {};
+            let queryString = window.location.search.substring(1);
+            let regex = /([^&=]+)=([^&]*)/g, match;
+            while (match = regex.exec(queryString)) {
+                params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+            }
+            return params;
+        }
+
+        window.onload = function() {
+            let params = getQueryParams();
+            document.getElementById("code").textContent = params['code'] || "No code received";
+            document.getElementById("state").textContent = params['state'] || "No state token";
+        };
+    </script>
+</head>
+<body>
+    <h1>OAuth Callback</h1>
+    <p>Google OAuth telah mengirimkan kode otentikasi berikut:</p>
+    <p><strong>Code:</strong> <span id="code"></span></p>
+    <p><strong>State:</strong> <span id="state"></span></p>
+</body>
+</html>
